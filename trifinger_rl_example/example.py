@@ -65,3 +65,13 @@ class TorchLiftPolicy(TorchBasePolicy):
     def __init__(self, action_space, observation_space, episode_length):
         model = policies.get_model_path("lift.pt")
         super().__init__(model, action_space, observation_space, episode_length)
+
+class CRRTorchLiftPolicy(TorchBasePolicy):
+    """CRR policy for the lift task, using a torch model to provide actions.
+
+    Expects flattened observations.
+    """
+
+    def __init__(self, action_space, observation_space, episode_length):
+        model = policies.get_model_path("/userhome/crr_old_data.pt")
+        super().__init__(model, action_space, observation_space, episode_length)
